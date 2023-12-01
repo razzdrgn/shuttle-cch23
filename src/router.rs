@@ -5,12 +5,18 @@ use axum::{
 	Router,
 	routing::get
 };
+use tower_http::trace;
 
 pub fn build_router() -> Router {
 	Router::new()
 		.route("/", get(root_endpoint))
 		.route("/-1/error", get(day_minusone))
 		.route("/1/*serial", get(day_one))
+		.layer(trace::TraceLayer::new_for_http()
+			.make_span_with(trace::DefaultMakeSpan::new()
+				.level(tracing::Level::INFO))
+			.on_response(trace::DefaultOnResponse::new()
+				.level(tracing::Level::INFO)))
 }
 
 pub async fn root_endpoint() -> impl IntoResponse {

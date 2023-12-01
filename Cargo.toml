@@ -8,3 +8,5 @@ publish = false
 shuttle-runtime = "0.34.0"
 tokio = "1"
 axum = { version = "0.7", features = ["tokio", "http2"] }
+tracing = "0.1"
+tower-http = { version = "0.5", features = ["trace"] }
