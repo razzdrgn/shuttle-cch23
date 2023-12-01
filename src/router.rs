@@ -27,9 +27,9 @@ pub async fn day_minusone() -> impl IntoResponse {
 
 pub async fn day_one(Path(serial): Path<String>) -> impl IntoResponse {
 	let v: Vec<&str> = serial.split_terminator('/').collect();
-	let mut result: u32 = 0;
+	let mut result: i32 = 0;
 	for i in v.iter() {
-		result = result ^ i.parse::<u32>().unwrap_or(0);
+		result = result ^ i.parse::<i32>().unwrap_or(0);
 	}
 	(StatusCode::OK, result.pow(3).to_string()).into_response()
 }
