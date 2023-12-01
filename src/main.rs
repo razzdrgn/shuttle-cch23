@@ -2,6 +2,7 @@ use tower_http::trace;
 
 mod advent;
 
+#[allow(clippy::unused_async)]
 #[shuttle_runtime::main]
 async fn init() -> Result<CCHService, shuttle_runtime::Error> {
 	let router = advent::router()
@@ -24,7 +25,7 @@ impl shuttle_runtime::Service for CCHService {
 		let router = self.router;
 		let listener = tokio::net::TcpListener::bind(&addr).await.unwrap();
 
-		tokio::select!(_ = async {axum::serve(listener, router).await.unwrap()} => {});
+		tokio::select!(() = async {axum::serve(listener, router).await.unwrap()} => {});
 
 		Ok(())
 	}
