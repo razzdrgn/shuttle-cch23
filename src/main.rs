@@ -1,9 +1,15 @@
-mod router;
-use router::build_router;
+use tower_http::trace;
+
+mod advent;
 
 #[shuttle_runtime::main]
 async fn init() -> Result<CCHService, shuttle_runtime::Error> {
-	let router = build_router();
+	let router = advent::router()
+		.layer(trace::TraceLayer::new_for_http()
+			.make_span_with(trace::DefaultMakeSpan::new()
+				.level(tracing::Level::INFO))
+			.on_response(trace::DefaultOnResponse::new()
+				.level(tracing::Level::INFO)));
 
 	Ok(CCHService { router })
 }
