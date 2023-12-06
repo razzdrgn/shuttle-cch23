@@ -1,5 +1,6 @@
 use axum::{http::StatusCode, response::IntoResponse, extract::Json};
 use serde::{Serialize, Deserialize};
+use tracing::info;
 
 pub fn router() -> axum::Router {
 	axum::Router::new()
@@ -43,12 +44,13 @@ impl Results {
 }
 
 async fn day_four_strength(Json(reindeer): Json<String>) -> impl IntoResponse {
+	info!("Request Body: {}", &reindeer);
 	let deer: Vec<Reindeer> = serde_json::from_str(&reindeer).expect("Broke when running from_str");
 	(StatusCode::OK, deer.iter().map(|x| x.strength).reduce(|x,y| x+y).unwrap_or_default().to_string())
 }
 
 async fn day_four_contest(Json(reindeer): Json<String>) -> impl IntoResponse {
+	info!("Request Body: {}", &reindeer);
 	let deer: Vec<Reindeer> = serde_json::from_str(&reindeer).expect("Broke when running from_str");
-
 	(StatusCode::OK, serde_json::to_string(&Results::new(&deer)).expect("Broke when serializing results"))
 }
