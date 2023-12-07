@@ -1,6 +1,7 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.1.0"
+version = "0.7.3"
+# Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
 
@@ -8,11 +9,15 @@ publish = false
 shuttle-runtime = "0.34"
 tokio = "1"
 axum = { version = "0.7", features = ["tokio", "http2"] }
+axum-extra = { version = "0.9", features = ["typed-header"] }
 tracing = "0.1"
 tower-http = { version = "0.5", features = ["trace"] }
 serde = "1.0"
 serde_json = "1.0"
 fancy-regex = "0.12"
+base64 = "0.21.5"
+headers = "0.4"
+num = "0.4.1"
 
 [lints.clippy]
 pedantic = { level = "warn" }

@@ -27,3 +27,9 @@ Namely, the reindeer with the highest "speed", "height", "snow_magic_power", and
 
 Takes a POST request containing plaintext, and returns a JSON object containing the counts of the occurances of
 "elf", "elf on a shelf", and "shelf" (without "elf on a " preceding it).
+
+## Day 7 (Implemented Dec 07, 2023)
+
+Endpoint /7/decode analyzes the Cookie header, and decodes the "recipe" field from base64 into a JSON object.
+Endpoint /7/bake takes in said recipe JSON objects (with properties "recipe" and "pantry"), then tries to "bake" the cookies.
+For the process to work, the Recipe's components must all exist in the Pantry, and the Pantry must contain equal to or greater than the number of materials required by the recipe.
