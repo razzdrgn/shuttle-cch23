@@ -39,7 +39,7 @@ impl BakeInput {
 			.reduce(|x, y| if x.1 < y.1 { x } else { y })
 			.expect("Could not find minimum cookies")
 			.1;
-		
+
 		BakeOutput {
 			cookies,
 			pantry: self
