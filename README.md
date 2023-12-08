@@ -33,3 +33,8 @@ Takes a POST request containing plaintext, and returns a JSON object containing 
 Endpoint /7/decode analyzes the Cookie header, and decodes the "recipe" field from base64 into a JSON object.
 Endpoint /7/bake takes in said recipe JSON objects (with properties "recipe" and "pantry"), then tries to "bake" the cookies.
 For the process to work, the Recipe's components must all exist in the Pantry, and the Pantry must contain equal to or greater than the number of materials required by the recipe.
+
+## Day 8 (Implemented Dec 08, 2023)
+
+Endpoint /8/weight will take a pokedex number from the path (i.e. `GET .../8/weight/150` for Mewtwo) and return the Pokemon's weight in Kg as plaintext.
+Endpoint /8/drop will take the same parameters and return the impact momentum from a 10 foot freefall, returned as N*s in plaintext.
