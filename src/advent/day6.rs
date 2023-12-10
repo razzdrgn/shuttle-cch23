@@ -8,7 +8,9 @@ pub fn router() -> axum::Router {
 #[derive(serde::Serialize)]
 struct Response {
 	elf: usize,
+	#[serde(rename(serialize = "elf on a shelf"))]
 	elf_on_a_shelf: usize,
+	#[serde(rename(serialize = "shelf with no elf on it"))]
 	shelf_with_no_elf_on_it: usize,
 }
 
