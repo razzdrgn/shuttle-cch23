@@ -1,6 +1,6 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.10.1"
+version = "0.10.2"
 # Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
