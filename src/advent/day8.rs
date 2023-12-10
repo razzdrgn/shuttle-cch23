@@ -29,9 +29,9 @@ async fn day_eight_weight(Path(dex_num): Path<String>) -> impl IntoResponse {
 			"{}",
 			resp.get("weight")
 				.expect("Could not parse response object (BAD READ)")
-				.as_u64()
+				.as_f64()
 				.expect("Could not parse response object (BAD CAST)")
-				/ 10
+				/ 10.0
 		),
 	)
 }
@@ -40,12 +40,12 @@ async fn day_eight_weight(Path(dex_num): Path<String>) -> impl IntoResponse {
 async fn day_eight_drop(Path(dex_num): Path<String>) -> impl IntoResponse {
 	let resp: serde_json::Value = query_mon(dex_num).await;
 
-	let weight: u64 = resp
+	let weight: f64 = resp
 		.get("weight")
 		.expect("Could not parse response object (BAD READ)")
-		.as_u64()
+		.as_f64()
 		.expect("Could not parse response object (BAD CAST)")
-		/ 10;
+		/ 10.0;
 
 	let vel: f64 = Float::sqrt(20_f64 / 9.825) * 9.825;
 
