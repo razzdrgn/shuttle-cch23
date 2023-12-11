@@ -51,3 +51,4 @@ I've manually checked all of the results by hand and like. My code's working. Th
 ## Day 11 (Implemented Dac 11, 2023)
 
 Added an assets server under the /11/assets endpoint that returns assets within the folder "assets", using Tower's `services::ServeDir` service.
+Endpoint /11/red_pixels counts the number of pixels in an image where the red value is greater than the sum of the green and blue values.
