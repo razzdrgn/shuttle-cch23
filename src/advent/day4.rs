@@ -90,7 +90,8 @@ impl Results {
 
 async fn day_four_strength(Json(reindeer): Json<serde_json::Value>) -> impl IntoResponse {
 	info!("Request Body: {}", &reindeer);
-	let deer: Vec<Reindeer> = serde_json::from_value(reindeer).expect("Broke when running from_str");
+	let deer: Vec<Reindeer> =
+		serde_json::from_value(reindeer).expect("Broke when running from_str");
 	(
 		StatusCode::OK,
 		deer.iter()
@@ -103,7 +104,8 @@ async fn day_four_strength(Json(reindeer): Json<serde_json::Value>) -> impl Into
 
 async fn day_four_contest(Json(reindeer): Json<serde_json::Value>) -> impl IntoResponse {
 	info!("Request Body: {}", &reindeer);
-	let deer: Vec<Reindeer> = serde_json::from_value(reindeer).expect("Broke when running from_str");
+	let deer: Vec<Reindeer> =
+		serde_json::from_value(reindeer).expect("Broke when running from_str");
 	(
 		StatusCode::OK,
 		serde_json::to_string(&Results::new(&deer)).expect("Broke when serializing results"),

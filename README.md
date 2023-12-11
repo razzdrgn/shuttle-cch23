@@ -38,3 +38,12 @@ For the process to work, the Recipe's components must all exist in the Pantry, a
 
 Endpoint /8/weight will take a pokedex number from the path (i.e. `GET .../8/weight/150` for Mewtwo) and return the Pokemon's weight in Kg as plaintext.
 Endpoint /8/drop will take the same parameters and return the impact momentum from a 10 foot freefall, returned as N*s in plaintext.
+
+## Day 10
+
+No challenge today, but went through and tried fixing things to work with the unofficial [codehunt.rs](https://www.codehunt.rs) leaderboard. Big things are just, better usage of serde across the board, and a few minor logic fixes, but no major changes, just fixing json fields. My stuff still isn't working with their API though because:
+
+1. ngrok keeps giving me network errors
+2. when the data does arrive it arrives corrupted
+
+I've manually checked all of the results by hand and like. My code's working. There's just something Going On that I'm not sure what it is. I'm hoping to work with the guy who's running it at some point to figure out what it is so here's hoping.
