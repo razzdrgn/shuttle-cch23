@@ -47,3 +47,7 @@ No challenge today, but went through and tried fixing things to work with the un
 2. when the data does arrive it arrives corrupted
 
 I've manually checked all of the results by hand and like. My code's working. There's just something Going On that I'm not sure what it is. I'm hoping to work with the guy who's running it at some point to figure out what it is so here's hoping.
+
+## Day 11 (Implemented Dac 11, 2023)
+
+Added an assets server under the /11/assets endpoint that returns assets within the folder "assets", using Tower's `services::ServeDir` service.
