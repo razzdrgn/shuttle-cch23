@@ -36,13 +36,19 @@ async fn day_eleven(
 		.decode()
 		.expect("Could not decode image");
 
-	let red_pix = img.as_rgb8()
+	let red_pix = img
+		.as_rgb8()
 		.expect("Could not interperet image data")
 		.pixels()
 		.map(image::Pixel::channels)
 		.map(Vec::from)
 		.map(|i| i.into_iter().map(u16::from).collect::<Vec<u16>>())
-		.map(|i| i.first().unwrap_or(&0).cmp(&(i.get(1).unwrap_or(&0) + i.get(2).unwrap_or(&0))).is_gt())
+		.map(|i| {
+			i.first()
+				.unwrap_or(&0)
+				.cmp(&(i.get(1).unwrap_or(&0) + i.get(2).unwrap_or(&0)))
+				.is_gt()
+		})
 		.map(usize::from)
 		.sum::<usize>();
 

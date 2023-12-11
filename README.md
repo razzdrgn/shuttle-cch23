@@ -57,3 +57,5 @@ Also implemented various fixes to work with the new offline validator:
 - /-1 is now /-1/error
 - Day 6 regex is fixed, and reduced processing intensity by only using 1 regex call
 - Day 7 logic now iterates over the recipe to filter out 0-valued recipe ingredients
+
+As a fun bonus, also managed to fix the network errors with ngrok. That was more an issue with my environment than anything else, but hey, stuff working is always good.

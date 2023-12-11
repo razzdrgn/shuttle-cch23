@@ -31,7 +31,7 @@ impl BakeInput {
 		let cookies = self
 			.recipe
 			.iter()
-			.filter(|(_,y)| y.gt(&&0))
+			.filter(|(_, y)| y.gt(&&0))
 			.map(|(x, y)| {
 				(
 					x.clone(),
