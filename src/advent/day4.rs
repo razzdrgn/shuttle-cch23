@@ -18,6 +18,7 @@ struct Reindeer {
 	antler_width: Option<isize>,
 	snow_magic_power: Option<isize>,
 	favorite_food: Option<String>,
+	#[serde(rename(deserialize = "cAnD13s_3ATeN-yesT3rdAy"))]
 	candies_eaten_yesterday: Option<isize>,
 }
 
