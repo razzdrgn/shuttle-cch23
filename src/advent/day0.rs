@@ -3,7 +3,7 @@ use axum::response::IntoResponse;
 pub fn router() -> axum::Router {
 	axum::Router::new()
 		.route("/", axum::routing::get(root_endpoint))
-		.route("/-1", axum::routing::get(day_zero))
+		.route("/-1/error", axum::routing::get(day_zero))
 }
 
 async fn root_endpoint() -> impl IntoResponse {

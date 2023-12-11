@@ -17,18 +17,14 @@ struct Response {
 impl Response {
 	fn new(text: &str) -> Response {
 		tracing::info!("{}", text);
-		let elf = Regex::new("(?i)elf")
+		let elf = text.matches("elf").count();
+		let elf_on_a_shelf = Regex::new("elf(?= on a shelf)")
 			.expect("Could not make regex")
 			.captures_iter(text)
 			.count();
-		let elf_on_a_shelf = Regex::new("(?i)elf on a shelf")
-			.expect("Could not make regex")
-			.captures_iter(text)
-			.count();
-		let shelf_with_no_elf_on_it = Regex::new("(?i)(?<!elf on a )shelf")
-			.expect("Could not make regex")
-			.captures_iter(text)
-			.count();
+		let shelf = text.matches("shelf").count();
+		let shelf_with_no_elf_on_it =
+			num::CheckedSub::checked_sub(&shelf, &elf_on_a_shelf).expect("Arithmetic Failure");
 		Response {
 			elf,
 			elf_on_a_shelf,

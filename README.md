@@ -10,7 +10,7 @@ Live host is available at https://console.shuttle.rs/project/cch23-razzdrgn
 ## Day 0 (Implemented Nov 30, 2023)
 
 Returns 200 and a fun xmas message at the root endpoint.
-Returns 500 and a silly boonus message at the /-1 endpoint
+Returns 500 and a silly bonus message at the /-1/error endpoint
 
 ## Day 1 (Implemented Dec 01, 2023)
 
@@ -52,3 +52,8 @@ I've manually checked all of the results by hand and like. My code's working. Th
 
 Added an assets server under the /11/assets endpoint that returns assets within the folder "assets", using Tower's `services::ServeDir` service.
 Endpoint /11/red_pixels counts the number of pixels in an image where the red value is greater than the sum of the green and blue values.
+
+Also implemented various fixes to work with the new offline validator:
+- /-1 is now /-1/error
+- Day 6 regex is fixed, and reduced processing intensity by only using 1 regex call
+- Day 7 logic now iterates over the recipe to filter out 0-valued recipe ingredients
