@@ -35,6 +35,6 @@ async fn fetch_key(State(state): State<Arc<RwLock<TimeState>>>, Path(key): Path<
 async fn day_twelve_ulids(Json(body): Json<Value>) -> impl IntoResponse {
 	info!("Request Body: {body}");
 	let inputs: Vec<Ulid> = serde_json::from_value(body).expect("Could not deserialize input");
-	let outputs: Vec<Uuid> = inputs.iter().rev().map(|u| Uuid::from(*u)).collect();
+	let outputs: Vec<Uuid> = inputs.into_iter().rev().map(Uuid::from).collect();
 	(axum::http::StatusCode::OK, Json(outputs))
 }
