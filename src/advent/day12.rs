@@ -52,7 +52,7 @@ impl LsbOutput {
 			.map(DateTime::<Utc>::from);
 
 		let christmas_eve = dates.clone().filter(|d| d.month() == 12 && d.day() == 24).count();
-		let weekday = dates.clone().filter(|d| d.weekday().num_days_from_sunday() == day).count();
+		let weekday = dates.clone().filter(|d| d.weekday().num_days_from_monday() == day).count();
 		let future = dates.filter(|d| d.gt(&Utc::now())).count();
 		let lsb = i.iter().filter(|u| u.0 & 1 == 1).count();
 
