@@ -1,6 +1,6 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.12.2"
+version = "0.12.3"
 # Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
@@ -22,6 +22,7 @@ reqwest = "0.11"
 image = "0.24"
 uuid = { version = "1.6.1", features = ["v8"] }
 ulid = { version = "1.1", features = ["serde", "uuid"] }
+chrono = { version = "0.4.31", features = ["clock", "std",] }
 
 [lints.clippy]
 pedantic = { level = "warn" }
