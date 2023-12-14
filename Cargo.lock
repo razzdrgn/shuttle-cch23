@@ -413,7 +413,7 @@ dependencies = [
 
 [[package]]
 name = "cch23-razzdrgn"
-version = "0.12.3"
+version = "0.14.2"
 dependencies = [
  "axum 0.7.1",
  "axum-extra",

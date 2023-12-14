@@ -59,3 +59,6 @@ Also implemented various fixes to work with the new offline validator:
 - Day 7 logic now iterates over the recipe to filter out 0-valued recipe ingredients
 
 As a fun bonus, also managed to fix the network errors with ngrok. That was more an issue with my environment than anything else, but hey, stuff working is always good.
+
+todo: days 12-14
+i haven't slept in a while so im a bit burnt out please forgive me for not keeping this readme up to date
