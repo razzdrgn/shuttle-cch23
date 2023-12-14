@@ -21,11 +21,10 @@ pub fn router() -> axum::Router {
 	}));
 
 	axum::Router::new()
-		.route("/12", axum::routing::get(axum::http::StatusCode::OK))
-		.route("/12/save/:key", axum::routing::post(save_key))
-		.route("/12/load/:key", axum::routing::get(fetch_key))
-		.route("/12/ulids", axum::routing::post(day_twelve_ulids))
-		.route("/12/ulids/:day", axum::routing::post(day_twelve_lsb))
+		.route("/save/:key", axum::routing::post(save_key))
+		.route("/load/:key", axum::routing::get(fetch_key))
+		.route("/ulids", axum::routing::post(day_twelve_ulids))
+		.route("/ulids/:day", axum::routing::post(day_twelve_lsb))
 		.with_state(state)
 }
 

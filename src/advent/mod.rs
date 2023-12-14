@@ -16,26 +16,39 @@ mod day20;
 mod day21;
 mod day22;
 
-pub fn router() -> axum::Router {
-	axum::Router::new()
+#[derive(Clone)]
+struct DBState {
+	pool: sqlx::PgPool,
+}
+
+pub async fn router(pool: sqlx::PgPool) -> Result<axum::Router, shuttle_runtime::CustomError> {
+	// okay let's figure out how to do a fuckin. postgres database
+	sqlx::migrate!()
+		.run(&pool)
+		.await
+		.map_err(shuttle_runtime::CustomError::new)?;
+
+	let state = DBState { pool };
+
+	Ok(axum::Router::new()
 		.nest("/", day0::router())
-		.nest("/", day1::router())
+		.nest("/1", day1::router())
 		// Days 2 and 3 are omitted due to being weekends
-		.nest("/", day4::router())
+		.nest("/4", day4::router())
 		.nest("/", day5::router())
-		.nest("/", day6::router())
-		.nest("/",  day7::router())
-		.nest("/",  day8::router())
+		.nest("/6", day6::router())
+		.nest("/7", day7::router())
+		.nest("/8", day8::router())
 		// Days 9 and 10 are omitted due to being weekends
-		.nest("/",  day11::router())
-		.nest("/",  day12::router())
-		.nest("/",  day13::router())
-		.nest("/",  day14::router())
-		.nest("/",  day15::router())
+		.nest("/11", day11::router())
+		.nest("/12", day12::router())
+		.nest("/13", day13::router(&state))
+		.nest("/14", day14::router())
+		.nest("/15", day15::router())
 		// Days 16 and 17 are omitted due to being weekends
-		.nest("/",  day18::router())
-		.nest("/",  day19::router())
-		.nest("/",  day20::router())
-		.nest("/",  day21::router())
-		.nest("/",  day22::router())
+		.nest("/18", day18::router())
+		.nest("/19", day19::router())
+		.nest("/20", day20::router())
+		.nest("/21", day21::router())
+		.nest("/22", day22::router()))
 }

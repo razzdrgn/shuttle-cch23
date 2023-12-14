@@ -9,9 +9,8 @@ use tracing::info;
 
 pub fn router() -> axum::Router {
 	axum::Router::new()
-		.route("/7", axum::routing::get(axum::http::StatusCode::OK))
-		.route("/7/decode", axum::routing::get(day_seven_decode))
-		.route("/7/bake", axum::routing::get(day_seven_bake))
+		.route("/decode", axum::routing::get(day_seven_decode))
+		.route("/bake", axum::routing::get(day_seven_bake))
 }
 
 #[derive(Serialize, Deserialize)]

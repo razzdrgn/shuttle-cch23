@@ -3,9 +3,8 @@ use num::Float;
 
 pub fn router() -> axum::Router {
 	axum::Router::new()
-		.route("/8", axum::routing::get(axum::http::StatusCode::OK))
-		.route("/8/weight/:dex_num", axum::routing::get(day_eight_weight))
-		.route("/8/drop/:dex_num", axum::routing::get(day_eight_drop))
+		.route("/weight/:dex_num", axum::routing::get(day_eight_weight))
+		.route("/drop/:dex_num", axum::routing::get(day_eight_drop))
 }
 
 async fn query_mon(dex_num: String) -> serde_json::Value {

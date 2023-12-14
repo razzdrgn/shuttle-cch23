@@ -2,7 +2,7 @@ use axum::{response::IntoResponse, Json};
 use fancy_regex::Regex;
 
 pub fn router() -> axum::Router {
-	axum::Router::new().route("/6", axum::routing::post(day_six))
+	axum::Router::new().route("/", axum::routing::post(day_six))
 }
 
 #[derive(serde::Serialize)]

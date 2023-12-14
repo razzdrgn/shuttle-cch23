@@ -2,15 +2,16 @@ use tower_http::trace;
 
 mod advent;
 
-#[allow(clippy::unused_async)]
 #[shuttle_runtime::main]
-async fn init() -> Result<CCHService, shuttle_runtime::Error> {
-	let router = advent::router()
-		.layer(trace::TraceLayer::new_for_http()
-			.make_span_with(trace::DefaultMakeSpan::new()
-				.level(tracing::Level::INFO))
-			.on_response(trace::DefaultOnResponse::new()
-				.level(tracing::Level::INFO)));
+async fn init(
+	#[shuttle_shared_db::Postgres(local_uri = "postgres://postgres:postgres@localhost/postgres")]
+	pool: sqlx::PgPool,
+) -> Result<CCHService, shuttle_runtime::Error> {
+	let router = advent::router(pool).await?.layer(
+		trace::TraceLayer::new_for_http()
+			.make_span_with(trace::DefaultMakeSpan::new().level(tracing::Level::INFO))
+			.on_response(trace::DefaultOnResponse::new().level(tracing::Level::INFO)),
+	);
 
 	Ok(CCHService { router })
 }

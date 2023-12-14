@@ -4,9 +4,8 @@ use tracing::info;
 
 pub fn router() -> axum::Router {
 	axum::Router::new()
-		.route("/4", axum::routing::get(axum::http::StatusCode::OK))
-		.route("/4/strength", axum::routing::post(day_four_strength))
-		.route("/4/contest", axum::routing::post(day_four_contest))
+		.route("/strength", axum::routing::post(day_four_strength))
+		.route("/contest", axum::routing::post(day_four_contest))
 }
 
 #[derive(Deserialize)]

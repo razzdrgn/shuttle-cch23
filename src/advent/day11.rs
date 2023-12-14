@@ -2,9 +2,8 @@ use axum::{body::Bytes, response::IntoResponse};
 
 pub fn router() -> axum::Router {
 	axum::Router::new()
-		.route("/11", axum::routing::get(axum::http::StatusCode::OK))
-		.route("/11/red_pixels", axum::routing::post(day_eleven))
-		.nest_service("/11/assets", tower_http::services::ServeDir::new("assets"))
+		.route("/red_pixels", axum::routing::post(day_eleven))
+		.nest_service("/assets", tower_http::services::ServeDir::new("assets"))
 }
 
 async fn day_eleven(

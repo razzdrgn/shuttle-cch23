@@ -1,7 +1,7 @@
 use axum::{extract::Path, response::IntoResponse};
 
 pub fn router() -> axum::Router {
-	axum::Router::new().route("/1/*serial", axum::routing::get(day_one))
+	axum::Router::new().route("/*serial", axum::routing::get(day_one))
 }
 
 async fn day_one(Path(serial): Path<String>) -> impl IntoResponse {
