@@ -46,8 +46,6 @@ async fn day_14_safe(Json(body): Json<Value>) -> impl IntoResponse {
 		.as_str()
 		.replace('"',"&quot;");
 
-	info!(content);
-
 	(
 		axum::http::StatusCode::OK,
 		Html(format!("{HEAD}{content}{TAIL}")),
