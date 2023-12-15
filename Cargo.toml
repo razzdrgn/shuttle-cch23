@@ -1,6 +1,6 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.15.1"
+version = "0.15.2"
 # Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
@@ -26,6 +26,7 @@ chrono = { version = "0.4.31", features = ["clock", "std"] }
 shuttle-shared-db = { version = "0.35.0", features = ["postgres"] }
 sqlx = { version = "0.7", features = ["runtime-tokio", "postgres", "json", "macros"] }
 color-eyre = "0.6.2"
+sha256 = "1.4.0"
 
 [lints.clippy]
 pedantic = { level = "warn" }
