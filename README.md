@@ -7,25 +7,25 @@ This is using a [custom service](https://docs.shuttle.rs/tutorials/custom-servic
 Live host is available at https://console.shuttle.rs/project/cch23-razzdrgn
 **(NOTE: HAS NOT BEEN UPDATED SINCE DEC 01 DUE TO SERVICE DISRUPTIONS)**
 
-This README contains my notes on each day's challenge, while the [wiki](/wiki) has documentation about each endpoint, its inputs and outputs, and what should be returned.
+This README contains my notes on each day's challenge, while the [wiki](https://github.com/razzdrgn/shuttle-cch23/wiki) has documentation about each endpoint, its inputs and outputs, and what should be returned.
 
 Any feedback on the codebase is appreciated, since I'm very much a webdev beginner, and intermediate with Rust.
 
 ## Day 0
 
-[Endpoint Documentation](/wiki/Day-0)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-0)
 
 This day was mainly for getting the project set up, and dipping my toes into axum, since it's my first time using it. I still wrapped the dang thing in a custom service anyway because you never know when you'll need to implement an extra runtime for whatever functionality.
 
 ## Day 1
 
-[Endpoint Documentation](/wiki/Day-1)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-1)
 
 This one was interesting, because while I got it to work pretty quickly using a for loop, I talked to some folks in the community also working on the challenge and learned about how to use the `.map` functions with closures. Needless to say it helped a lot with simplifying it and making it easier to read, and (writing this in the future from then) definitely helped me for the challenges ahead.
 
 ## Day 4
 
-[Endpoint Documentation](/wiki/Day-4)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-4)
 
 I feel like I remember this one being harder than it was, if only because of all the nonsense I was trying to do with my closures. Obviously after learning them the previous friday I immediately had to use them, and I did some Wacky Shit to get the results to work properly.
 
@@ -35,7 +35,7 @@ The output of the contest endpont, for the record, is the Strength and Name of t
 
 ## Day 6
 
-[Endpoint Documentation](/wiki/Day-6)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-6)
 
 So while there's really nothing special to say since this is just running some super basic regex on the input text, the problems for this day (which stretched on for far longer than they needed to) were caused when validating my code with the various validators that existed over the last few weeks. The specific expectations for the outputs of each test case varied between the implementations, and a lot of the edge cases were a little absurd, leading to me having to rewrite the logic on this at least 10 times. Probably more.
 
@@ -43,7 +43,7 @@ The specific integer values being returned are the number of matches of the word
 
 ## Day 7
 
-[Endpoint Documentation](/wiki/Day-7)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-7)
 
 This one was really fun to work on actually! Mostly because for the final validation, I had to kind of invert my method of thinking to solve it.
 
@@ -53,7 +53,7 @@ Iterating over the pantry made more sense for then subtracting the necessary ite
 
 ## Day 8
 
-[Endpoint Documentation](/wiki/Day-8)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-8)
 
 I spent a not insignificant time trying to get this to work using things that were already included within Axum, since in theory it should be able to send out get requests. However, I couldn't figure it out, so I ended up just using [reqwest](https://github.com/seanmonstar/reqwest), which is way more boring, but also way easier.
 
@@ -68,7 +68,7 @@ I've manually checked all of the results by hand and like. My code's working. Th
 
 ## Day 11
 
-[Endpoint Documentation](/wiki/Day-11)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-11)
 
 I'll be real, the only interesting thing was implementing the `/11/red_pixels` logic. I spent, again, a very embarassing amount of time trying to iterate over the raw bytes of the image, before giving up and using the [image](https://github.com/image-rs/image) crate. Even once I got it there, actually processing over the images, and converting the bytes into something that wouldn't overflow, was a pain in the ass. However, today I figured you could pass functions directly into `.map`, which was nice, and helped a bit with making the code a bit easier to read.
 
@@ -82,13 +82,13 @@ As a fun bonus, also managed to fix the network errors with ngrok. That was more
 
 ## Day 12
 
-[Endpoint Documentation](/wiki/Day-12)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-12)
 
 I had to learn how to use Axum's shared state today, and it was. Okay? The issue was dealing with all the `Arc`s and the `RwLock`s and the containers you have to stuff the actual state into. Once I figured it out it was pretty smooth sailing from there, though trying to convert between [chrono](https://github.com/chronotope/chrono) and `std::time` was interesting. Not fun, but interesting.
 
 ## Day 13
 
-[Endpoint Documentation](/wiki/Day-13)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-13)
 
 I started on this one late since I was out and about today, and having to suddenly learn how to use Docker, and [sqlx](https://github.com/launchbadge/sqlx), and the nightmare of trying to have a shared state across nested routes stored within modules, today was painful. But GOD DAMN am I happy with how this turned out. Like, holy shit. This is some of the cleanest code I've written yet, it worked basically first try, and man. I am just proud of myself. I don't know if it's the best or cleanest or what implementation of this problem, but I'm extremely happy with how this turned out.
 
@@ -96,13 +96,13 @@ I was so happy that, as part of getting the postgres database to work, I refacto
 
 ## Day 14
 
-[Endpoint Documentation](/wiki/Day-14)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-14)
 
 There's really not much to say about this challenge, it was pretty straightforward. The problems come, again, with the validators. The html was expected to be space-indented, and I am a member of the tab-indent party. Also, in order to get the data to actually send to codehunt.rs, I had to sign up for an ngrok account. Which, boooo, they didn't let me use SimpleLogin for email obscuring, then immediately I got bullshit marketing emails from them. Yuck. At least the problem worked well.
 
 ## Day 15
 
-[Endpoint Documentation](/wiki/Day-15)
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-15)
 
 Today's challenge implementation was so huge that I had to break out a whole ass module folder for it. Wow!
 
