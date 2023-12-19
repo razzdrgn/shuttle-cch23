@@ -111,3 +111,11 @@ So, this is basically just doing regex matching on inputs, then processing each 
 So, after getting the `/15/nice` endpoint to work, I went and made a whole new module. The `passwordgame.rs` module is basically all the actual business logic for this implementation. I made a serde compatible enum for all the different possible results and response messages, I made each individual test into its own function, then I made the if/else ladder that calls those functions into its own private function, and if THAT wasn't enough I put the actual Axum Response into a function inside the struct!
 
 Like, realistically, this is too much, but this is also an exercise in building strong, resiliant code the first time. Because the only things that didn't actually work immediately, were the regex strings used, and the fact that I didn't invert the logic when designing it in my head. Literally, other than those two things, this worked flawlessly, and today is another day I'm proud of myself for.
+
+## Day 18
+
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-18)
+
+Today was surprisingly easy, if only because I already prepped with the day-agnostic database last week, and because just about everything except the SQL queries were identical. Either way, I feel like I'm getting better, and using the tools at my disposal a little smarter. I couldn't tell you if I actually did today, though, since I started a new job and I'm exhausted and my brain is a grey mush, but like, yeah.
+
+I split a few of the common functions/types/etc out from the Day 13/18 modules and stuck them into a db_common module. It's pretty much just got the handlers for posting something new to the database, the shared state, and some internal types. It's pretty barebones but I think it captures most of the commonalities across the two days. Maybe I add more in the future to keep things neat and organized still, who knows. I don't. It's time for me to go to bed anyway so I'm done thinking.

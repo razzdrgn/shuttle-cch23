@@ -16,19 +16,10 @@ mod day20;
 mod day21;
 mod day22;
 
-#[derive(Clone)]
-struct DBState {
-	pool: sqlx::PgPool,
-}
+mod db_common;
 
 pub async fn router(pool: sqlx::PgPool) -> Result<axum::Router, shuttle_runtime::CustomError> {
-	// okay let's figure out how to do a fuckin. postgres database
-	sqlx::migrate!()
-		.run(&pool)
-		.await
-		.map_err(shuttle_runtime::CustomError::new)?;
-
-	let state = DBState { pool };
+	let state = db_common::DBState::init(pool).await?;
 
 	Ok(axum::Router::new()
 		.nest("/", day0::router())
@@ -46,7 +37,7 @@ pub async fn router(pool: sqlx::PgPool) -> Result<axum::Router, shuttle_runtime:
 		.nest("/14", day14::router())
 		.nest("/15", day15::router())
 		// Days 16 and 17 are omitted due to being weekends
-		.nest("/18", day18::router())
+		.nest("/18", day18::router(&state))
 		.nest("/19", day19::router())
 		.nest("/20", day20::router())
 		.nest("/21", day21::router())
