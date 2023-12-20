@@ -119,3 +119,13 @@ Like, realistically, this is too much, but this is also an exercise in building 
 Today was surprisingly easy, if only because I already prepped with the day-agnostic database last week, and because just about everything except the SQL queries were identical. Either way, I feel like I'm getting better, and using the tools at my disposal a little smarter. I couldn't tell you if I actually did today, though, since I started a new job and I'm exhausted and my brain is a grey mush, but like, yeah.
 
 I split a few of the common functions/types/etc out from the Day 13/18 modules and stuck them into a db_common module. It's pretty much just got the handlers for posting something new to the database, the shared state, and some internal types. It's pretty barebones but I think it captures most of the commonalities across the two days. Maybe I add more in the future to keep things neat and organized still, who knows. I don't. It's time for me to go to bed anyway so I'm done thinking.
+
+## Day 19
+
+[Endpoint Documentation](https://github.com/razzdrgn/shuttle-cch23/wiki/Day-19)
+
+I've already started getting into the groove of doing these after work now. Shame that Friday is the last challenge then.
+
+Anyway, today was all about websockets, and I'll be honest gang, it kinda sucked a little. It's good, in the long run, for me, since I need to learn Websockets/Webhooks for my [other project](https://github.com/razzdrgn/razzbot) but the specific tedium of getting these endpoints to work drove me a little nuts. I got lost in the loop I was using for processing the inputs since I had the receiving after the sending, I had trouble getting the shared state to be properly mutable across everything and had to deal with arcs being how they are, and I had to essentially fully remove ANY logging for today, because the websocket was processing so fast that the logs were causing threads to slow down and desync enough that the validator would kill its connections before properly catching all the data.
+
+Overall though I'm pretty happy with myself. I'm nowhere near as proud of myself as I was for days 13 or 15, but I'm pretty proud of myself at least for getting everything to work basically first try.

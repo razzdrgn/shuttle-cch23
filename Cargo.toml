@@ -1,6 +1,6 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.19.1"
+version = "0.19.2"
 # Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
@@ -31,6 +31,7 @@ sqlx = { version = "0.7", features = [
 	"macros",
 ] }
 sha256 = "1.4.0"
+futures-util = { version = "0.3.29", features = ["sink"] }
 
 [lints.clippy]
 pedantic = { level = "warn" }
