@@ -1,6 +1,6 @@
 [package]
 name = "cch23-razzdrgn"
-version = "0.19.2"
+version = "0.20.2"
 # Full Revision . Day . Day Revision
 edition = "2021"
 publish = false
@@ -34,6 +34,8 @@ sha256 = "1.4.0"
 futures-util = { version = "0.3.29", features = ["sink"] }
 tar = "0.4.40"
 bytes = { version = "1.5", features = ["std"] }
+tempfile = "3.8.1"
+git2 = "0.18.1"
 
 [lints.clippy]
 pedantic = { level = "warn" }
