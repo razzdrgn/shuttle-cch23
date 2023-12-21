@@ -32,6 +32,8 @@ sqlx = { version = "0.7", features = [
 ] }
 sha256 = "1.4.0"
 futures-util = { version = "0.3.29", features = ["sink"] }
+tar = "0.4.40"
+bytes = { version = "1.5", features = ["std"] }
 
 [lints.clippy]
 pedantic = { level = "warn" }
