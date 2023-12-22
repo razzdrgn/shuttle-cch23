@@ -39,7 +39,9 @@ git2 = "0.18.1"
 hex-utilities = "0.1.5"
 s2 = "0.0.12"
 dms-coordinates = "1.1.0"
-reverse_geocoder = "4.0.0"
+country-boundaries = "1.2.0"
+celes = "2.4.0"
+capitalize = "0.1.0"
 
 [lints.clippy]
 pedantic = { level = "warn" }
