@@ -36,6 +36,10 @@ tar = "0.4.40"
 bytes = { version = "1.5", features = ["std"] }
 tempfile = "3.8.1"
 git2 = "0.18.1"
+hex-utilities = "0.1.5"
+s2 = "0.0.12"
+dms-coordinates = "1.1.0"
+reverse_geocoder = "4.0.0"
 
 [lints.clippy]
 pedantic = { level = "warn" }
