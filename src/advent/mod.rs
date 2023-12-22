@@ -26,7 +26,7 @@ pub async fn router(pool: sqlx::PgPool) -> Result<axum::Router, shuttle_runtime:
 		.nest("/1", day1::router())
 		// Days 2 and 3 are omitted due to being weekends
 		.nest("/4", day4::router())
-		.nest("/", day5::router())
+		.nest("/5", day5::router())
 		.nest("/6", day6::router())
 		.nest("/7", day7::router())
 		.nest("/8", day8::router())
