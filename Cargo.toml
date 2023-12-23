@@ -42,6 +42,7 @@ dms-coordinates = "1.1.0"
 country-boundaries = "1.2.0"
 celes = "2.4.0"
 capitalize = "0.1.0"
+pathfinding = "4.8.0"
 
 [lints.clippy]
 pedantic = { level = "warn" }

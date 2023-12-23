@@ -1,3 +1,4 @@
+#![feature(slice_group_by)]
 use tower_http::trace;
 
 mod advent;
